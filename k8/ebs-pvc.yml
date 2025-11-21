@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-pvc
+  name: ebs-claim
 spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: test-pv
   accessModes:
     - ReadWriteOnce
-  storageClassName: manual
   resources:
     requests:
-      storage: 20Gi
+      storage: 5Gi
